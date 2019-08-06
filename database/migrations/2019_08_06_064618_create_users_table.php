@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('gender', ['Pria', 'Wanita']);
-            $table->string('no_telp', 12);
-            $table->string('no_rekening', 20);
+            $table->string('no_telp', 12)->nullable();
+            $table->string('no_rekening', 20)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

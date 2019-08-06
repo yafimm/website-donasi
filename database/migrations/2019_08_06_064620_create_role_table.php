@@ -34,7 +34,7 @@ class CreateRoleTable extends Migration
      */
     public function down()
     {
-        Schema::table('blog', function(Blueprint $table){
+        Schema::table('users', function(Blueprint $table){
           $table->dropForeign('users_id_role_foreign');
         });
 

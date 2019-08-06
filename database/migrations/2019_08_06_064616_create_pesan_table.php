@@ -36,7 +36,7 @@ class CreatePesanTable extends Migration
     public function down()
     {
         Schema::table('detail_pesan', function(Blueprint $table){
-         $table->dropForeign('pesan_id_pesan_foreign');
+         $table->dropForeign('detail_pesan_id_pesan_foreign');
         });
 
         Schema::dropIfExists('pesan');
