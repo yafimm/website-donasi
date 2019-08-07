@@ -11,17 +11,16 @@ class ZakatController extends Controller
 
     public function index()
     {
-        $zakat = Donasi::where('id_jenis_donasi', '=', '2')
-                        ->where('id_jenis_donasi', '=', '3')
-                        ->simplePaginate(20);
+        $zakat = Donasi::whereIn('id_jenis_donasi', [2, 3])->simplePaginate(20);
+        // dd($zakat);
         return view('zakat.index', compact('zakat'));
     }
 
     public function create()
     {
         $zakat = new Donasi;
-        $jenis_zakat = jenisDonasi::where('id', '=', '2')
-                                    ->where('id', '=', '3');
+        $jenis_zakat = jenisDonasi::whereIn('id', [2, 3])
+                                    ->get();
         return view('zakat.create', compact('jenis_zakat', 'zakat'));
     }
 

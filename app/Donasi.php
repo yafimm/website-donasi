@@ -17,11 +17,11 @@ class Donasi extends Model
   }
 
   public function penerima(){
-      return $this->belongsTo('App\Users', 'id_penerima');
+      return $this->belongsTo('App\User', 'id_penerima');
   }
 
   public function pengirim(){
-      return $this->belongsTo('App\Users', 'id_pengirim');
+      return $this->belongsTo('App\User', 'id_pengirim');
   }
 
 }

@@ -15,6 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function(){
+    return view('zakat.create');
+});
+
+// Route::group(['middleware' => ['web']], function(){
+// });
+
+Route::group(['prefix' => 'admin', 'middleware' => ['web']], function(){
+    Route::get('dashboard', 'UsersController@admindashboard');
+    Route::resource('zakat', 'ZakatController');
+    Route::resource('donasi', 'DonasiController');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
