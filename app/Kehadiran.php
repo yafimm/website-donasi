@@ -12,5 +12,9 @@ class Kehadiran extends Model
 
     protected $fillable = [
         'id_pegawai', 'jam_kehadiran',
-      ];
+    ];
+
+    public function user(){
+        return $this->belongsto('App\Users', 'id_pegawai');
+    }
 }

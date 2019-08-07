@@ -11,4 +11,8 @@ class Pesan extends Model
     protected $fillable = [
         'status',
     ];
+
+    public function detail_pesan(){
+        return $this->hasMany('App\detailPesan', 'id_pesan', 'id');
+    }
 }
