@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web']], function(){
     Route::get('dashboard', 'UsersController@admindashboard');
     Route::resource('zakat', 'ZakatController');
     Route::resource('donasi', 'DonasiController');
+    Route::resource('pegawai', 'PegawaiController');
 });
 
 Auth::routes();
