@@ -5,16 +5,42 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Donasi;
 use App\jenisDonasi;
+use App\User;
 
 class ZakatController extends Controller
 {
 
     public function index()
     {
-        $zakat = Donasi::whereIn('id_jenis_donasi', [2, 3])->simplePaginate(20);
-        // dd($zakat);
+        $zakat = Donasi::where('status', '=','Belum Selesai')->whereIn('id_jenis_donasi', [2, 3])->simplePaginate(20);
         return view('zakat.index', compact('zakat'));
     }
+
+    public function index_user()
+    {
+        $zakat = Donasi::where([['id_pengirim', '=', \Auth::user()->id], ['status', '=','Belum Selesai']])
+                        ->whereIn('id_jenis_donasi', [2, 3])
+                        ->orderBy('created_at', 'desc')
+                        ->simplePaginate(20);
+
+        return view('zakat.index', compact('zakat'));
+    }
+
+    public function history()
+    {
+        $zakat = Donasi::where('status','=','Selesai')->whereIn('id_jenis_donasi', [2, 3])->simplePaginate(20);
+        return view('zakat.index', compact('zakat'));
+    }
+
+    public function history_user()
+    {
+        $sumbangan = Donasi::where([['id_pengirim', '=', \Auth::user()->id], ['status', '=','Selesai']])
+                        ->whereIn('id_jenis_donasi', [2,3])
+                        ->orderBy('created_at', 'desc')
+                        ->simplePaginate(20);
+        return view('sumbangan.index', compact('sumbangan'));
+    }
+
 
     public function create()
     {
@@ -24,18 +50,33 @@ class ZakatController extends Controller
         return view('zakat.create', compact('jenis_zakat', 'zakat'));
     }
 
+    public function create_user()
+    {
+        $zakat = new Donasi;
+        $jenis_zakat = jenisDonasi::whereIn('id', [2, 3])
+                                  ->get();
+        return view('zakat.create_user', compact('jenis_zakat', 'zakat'));
+    }
+
     public function store(Request $request)
     {
         $input = $request->all();
-        $input['pengirim'] = \Auth('users')->user()->id;
+        $input['id_pengirim'] = \Auth::user()->id;
+        $input['gambar'] = 'test';
+        $input['bukti_pengiriman'] = 'test';
+        $input['status'] = 'Belum Selesai';
         $store = Donasi::create($input);
-        if($store){
-            return redirect()->with('alert-class','alert-success')
-                            ->with('Data berhasil diinput');
+        if($store && \Auth::user()->isAdmin()){
+            return redirect()->route('zakat.index')->with('alert-class','alert-success')
+                            ->with('flash_message', 'Data Zakat berhasil diinput');
+        }else if($store && !\Auth::user()->isAdmin()){
+          return back()->with('alert-class','alert-success')
+                          ->with('flash_message', 'Data Zakat berhasil diinput');
+
         }
         //Kalo fail dilempar kesini
-        return redirect()->with('alert-class','alert-danger')
-                        ->with('Data gagal diinput');
+        return back()->with('alert-class','alert-danger')
+                        ->with('flash_message','Data Zakat gagal diinput');
     }
 
     public function show(Donasi $zakat)

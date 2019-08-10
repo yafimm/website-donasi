@@ -36,12 +36,18 @@ class PegawaiController extends Controller
 
   public function show(User $pegawai)
   {
-      return view('pegawai.show', compact('pegawai'));
+      if($pegawai->id_role == 3){ // kalo user bukan pegawai, pake ini soalnya laravel model binding
+          return view('pegawai.show', compact('pegawai'));
+      }
+      return abort(404);
   }
 
   public function edit(User $pegawai)
   {
-      return view('pegawai.edit', compact('pegawai'));
+      if($pegawai->id_role == 3){ // kalo user bukan pegawai, pake ini soalnya laravel model binding
+          return view('pegawai.edit', compact('pegawai'));
+      }
+      return abort(404);
   }
 
   public function update(Request $request, User $pegawai)

@@ -1,13 +1,6 @@
-<!-- <div class="form-group">
-   <label for="exampleFormControlInput1">Penerima</label>
-   <input type="text" class="form-control" name="Penerima" placeholder="Masukkan username penerima (Yayasan)" value="">
-   @if($errors->has('judul'))
-    <small class="form-text text-danger">*{{ $errors->first('judul') }}</small>
-    @endif
- </div> -->
  <div class="form-group">
    <label for="exampleFormControlSelect1">Jenis Zakat</label>
-   <select class="form-control" name="jenis_zakat">
+   <select class="form-control" name="id_jenis_donasi">
      @foreach($jenis_zakat as $jenis)
       <option value="{{ $jenis->id }}">{{ $jenis->nama }}</option>
      @endforeach
@@ -15,15 +8,19 @@
  </div>
  <div class="form-group">
    <label for="exampleFormControlSelect2">Gambar</label>
-   <input type="file" name="" value="">
+   <input type="file" id="imgInp" name="gambar" value="" class="form-control-file">
+   <img id="blah" src="#" class="img-fluid"/>
+   <small class="form-text text-info">*Upload gambar barang/uang yang akan dizakatkan</small>
  </div>
  <div class="form-group">
    <label for="exampleFormControlSelect2">Bukti pengiriman</label>
-   <input type="file" name="" value="">
+   <input type="file" name="bukti_pengiriman" value="" class="form-control-file">
+   <small class="form-text text-info">*Upload gambar barang bukti pengiriman kepada pihak kami</small>
  </div>
  <div class="form-group">
    <label for="exampleFormControlTextarea1">Deskripsi</label>
-   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+   <textarea class="form-control" name="deskripsi" id="exampleFormControlTextarea1" rows="3"></textarea>
+   <small class="form-text text-info">*Deskripsikan barang atau uang yang akan dizakatkan sesuai gambar zakat yang dikirimkan</small>
  </div>
 
- <button type="submit" class="btn btn-success" name="button">Submit</button>
+ <button type="submit" class="btn btn-block btn-success" name="button">Submit</button>

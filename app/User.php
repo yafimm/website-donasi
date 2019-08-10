@@ -22,6 +22,40 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+// ================== Untuk cek hak akses ================
+    public function isDonatur(){
+      if($this->id_role === 1){
+           return true;
+       }else{
+           return false;
+       }
+    }
+
+    public function isYayasan(){
+      if($this->id_role === 2){
+           return true;
+       }else{
+           return false;
+       }
+    }
+
+    public function isHelpdesk(){
+      if($this->id_role === 3){
+           return true;
+       }else{
+           return false;
+       }
+    }
+
+    public function isAdmin(){
+      if($this->id_role === 4){
+           return true;
+       }else{
+           return false;
+       }
+    }
+// ===========================
+
     public function role(){
         return $this->belongsTo('App\Role', 'id_role');
     }

@@ -50,8 +50,12 @@
                 {{ Auth::user()->username }}
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <!-- <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a> -->
+                <a class="dropdown-item" href="">{{ Auth::user()->role->nama_role }}</a>
+                @if(Auth::user()->isAdmin())
+                  <a class="dropdown-item" href="{{ route('dashboard.admin') }}">Dashboard</a>
+                @else
+                  <a class="dropdown-item" href="{{ url('dashboard') }}">Dashboard</a>
+                @endif
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">Logout</a>

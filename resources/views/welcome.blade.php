@@ -30,6 +30,7 @@
             <abbr title="Email">E:</abbr>
             <a href="mailto:#">name@example.com</a>
           </address>
+          <a href="#" class="btn btn-info">Bantuan dan Keluhan</a>
         </div>
       </div>
       <!-- /.row -->

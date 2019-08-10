@@ -8,10 +8,11 @@ class UsersController extends Controller
 {
     public function dashboard()
     {
-        return view('users.dashboard');
+        return view('admin.dashboard');
     }
 
-    public function admindashboard(){
+    public function admindashboard()
+    {
         return view('admin.dashboard');
     }
 }

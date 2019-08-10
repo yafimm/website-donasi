@@ -6,23 +6,27 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         return view('home');
+    }
+
+    public function zakat(){
+        return view('zakat');
+    }
+
+    public function sumbangan(){
+        $yayasan = \App\User::where('id_role', '=', 2)->simplePaginate(15);
+        return view('sumbangan', compact('yayasan'));
+    }
+
+    public function about(){
+        return view('about');
     }
 }
