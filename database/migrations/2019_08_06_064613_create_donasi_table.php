@@ -17,7 +17,7 @@ class CreateDonasiTable extends Migration
             $table->increments('id');
             $table->integer('id_jenis_donasi')->unsigned();
             $table->integer('id_pengirim')->unsigned();
-            $table->integer('id_penerima')->unsigned();
+            $table->integer('id_penerima')->unsigned()->nullable();
             $table->string('bukti_pengiriman');
             $table->enum('status', ['Selesai', 'Belum Selesai']);
             $table->string('gambar');

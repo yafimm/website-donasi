@@ -16,7 +16,7 @@ class AdminAuth
     public function handle($request, Closure $next)
     {
         if (\Auth::check()) {
-            if(\Auth::user()->isAdmin()){
+            if(\Auth::user()->isAdmin() || \Auth::user()->isHelpdesk()){
                 return $next($request);
             }
         }

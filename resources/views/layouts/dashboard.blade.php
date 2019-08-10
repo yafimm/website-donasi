@@ -51,7 +51,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="">{{ Auth::user()->role->nama_role }}</a>
-                @if(Auth::user()->isAdmin())
+                @if(Auth::user()->isAdmin() || Auth::user()->isHelpdesk())
                   <a class="dropdown-item" href="{{ route('dashboard.admin') }}">Dashboard</a>
                 @else
                   <a class="dropdown-item" href="{{ url('dashboard') }}">Dashboard</a>

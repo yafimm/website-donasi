@@ -7,13 +7,14 @@
   <div class="container">
     <div class="row py-2">
       <div class="col-12">
-        <h1>Zakat Fitra</h1>
+        <h1>Zakat Fitrah</h1>
       </div>
       <div class="col-12 col-md-6 py-2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Zakat fitrah adalah zakat yang harus ditunaikan bagi seorang muzakki yang telah memiliki kemampuan untuk menunaikannya. Zakat fitrah adalah zakat wajib yang harus dikeluarkan sekali setahun yaitu saat bulan ramadhan menjelang idul fitri. Pada prinsipnya, zakat fitrah haruslah dikeluarkan sebelum sholat idul fitri dilangsungkan. Hal tersebut yang menjadi pembeda zakat fitrah dengan zakat lainnya.
+        Zakat fitrah berarti menyucikan harta, karena dalam setiap harta manusia ada sebagian hak orang lain. Oleh karenanya, tidak ada suatu alasan pun bagi seorang hamba Allah yang beriman untuk tidak menunaikan zakat fitrah karena telah diwajibkan bagi setiap muslim, laki-laki maupun perempuan, orang yang merdeka atau budak, anak kecil atau orang dewasa. Ini perkara yang telah disepakati oleh para ulama.
       </div>
       <div class="col-12 col-md-6 py-2">
-        <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid" alt="">
+        <img src="https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1558606105/skpcj33zcvxjoqjqetzt.jpg" class="img-fluid" alt="">
       </div>
     </div>
     <div class="row py-2">
@@ -21,11 +22,16 @@
         <h1>Zakat Mal</h1>
       </div>
       <div class="col-12 col-md-6 py-2">
-        <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid" alt="">
+        <img src="https://pondokislami.com/wp-content/uploads/2018/06/pengertian-ketentuan-cara-menghitung-zakat-mal.jpg" class="img-fluid" alt="">
       </div>
       <div class="col-12 col-md-6 py-2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
+        Menurut bahasa (lughat), harta adalah segala sesuatu yang diinginkan sekali sekali oleh manusia untuk memiliki, memanfaatkan dan menyimpannya.
+        Menurut syar'a, harta adalah segala sesuatu yang dapat dimiliki (dikuasai) dan dapat digunakan (dimanfaatkan) menurut ghalibnya (lazim).
+
+        Sesuatu dapat disebut dengan maal (harta) apabila memenuhi 2 (dua) syarat, yaitu:
+        a. Dapat dimiliki, disimpan, dihimpun, dikuasai
+        b. Dapat diambil manfaatnya sesuai dengan ghalibnya. Misalnya rumah, mobil, ternak, hasil pertanian, uang, emas, perak, dll.
+    </div>
       <div class="col-12 col-md-6 offset-md-3 text-center py-3">
         <a href="{{ route('zakat.create.user') }}" class="btn btn-lg btn-primary btn-block">Mulai Zakat</a>
       </div>

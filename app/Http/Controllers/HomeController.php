@@ -14,7 +14,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        $yayasan = \App\User::where('id_role','=', 2)-> inRandomOrder(6)->get();
+        $recent_donatur = \App\Donasi::where('status','=','Selesai')
+                                      ->orderBy('created_at', 'desc')
+                                      ->take(10)->get();
+        return view('welcome', compact('yayasan','recent_donatur'));
     }
 
     public function zakat(){

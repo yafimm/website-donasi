@@ -34,11 +34,11 @@ class ZakatController extends Controller
 
     public function history_user()
     {
-        $sumbangan = Donasi::where([['id_pengirim', '=', \Auth::user()->id], ['status', '=','Selesai']])
+        $zakat = Donasi::where([['id_pengirim', '=', \Auth::user()->id], ['status', '=','Selesai']])
                         ->whereIn('id_jenis_donasi', [2,3])
                         ->orderBy('created_at', 'desc')
                         ->simplePaginate(20);
-        return view('sumbangan.index', compact('sumbangan'));
+        return view('zakat.index', compact('zakat'));
     }
 
 
@@ -86,31 +86,48 @@ class ZakatController extends Controller
 
     public function edit(Donasi $zakat)
     {
-        return view('zakat.edit', compact('zakat'));
+      $jenis_zakat = jenisDonasi::whereIn('id', [2, 3])
+                                  ->get();
+        return view('zakat.edit', compact('zakat', 'jenis_zakat'));
     }
 
     public function update(Request $request, Donasi $zakat)
     {
         $input = $request->all();
+        $input['gambar'] = 'test';
+        $input['bukti_pengiriman'] = 'test';
         $update = $zakat->update($input);
         if($update){
-            return redirect()->with('alert-class','alert-success')
-                            ->with('Data berhasil diupdate');
+            return redirect()->route('zakat.index')->with('alert-class','alert-success')
+                            ->with('flash_message', 'Data berhasil diupdate');
         }
         //Kalo fail dilempar kesini
-        return redirect()->with('alert-class','alert-danger')
-                        ->with('Data gagal diupdate');
+        return redirect()->route('zakat.index')->with('alert-class','alert-danger')
+                        ->with('flash_message','Data gagal diupdate');
+    }
+
+    public function update_status(Request $request)
+    {
+        $zakat = Donasi::find($request->id);
+        $update = $zakat->update(['status' => 'Selesai',
+                                  'id_penerima' => \Auth::user()->id]);
+        if($update){
+          return redirect()->route('zakat.index')->with('alert-class','alert-success')
+                          ->with('flash_message', 'Status data berhasil diupdate');
+        }
+        return redirect()->route('zakat.index')->with('alert-class','alert-danger')
+                        ->with('flash_message','Status data gagal diupdate');
     }
 
     public function destroy(Donasi $zakat)
     {
         $delete = $zakat->delete();
         if($delete){
-            return redirect()->with('alert-class','alert-success')
-                            ->with('Data berhasil dihapus');
+            return redirect()->route('zakat.index')->with('alert-class','alert-success')
+                            ->with('flash_message','Data berhasil dihapus');
         }
         //Kalo fail dilempar kesini
-        return redirect()->with('alert-class','alert-danger')
-                        ->with('Data gagal dihapus');
+        return redirect()->route('zakat.index')->with('alert-class','alert-danger')
+                        ->with('flash_message','Data gagal dihapus');
     }
 }

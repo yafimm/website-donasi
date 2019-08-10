@@ -111,16 +111,17 @@ class SumbanganController extends Controller
                       ->with('Data gagal diupdate');
   }
 
-  public function update_status(Request $request, Donasi $sumbangan)
+
+  public function update_status(Request $request)
   {
-      $status = 'Selesai';
-      $update = $zakat->update($status);
+      $zakat = Donasi::find($request->id);
+      $update = $zakat->update(['status' => 'Selesai']);
       if($update){
-          return back()->with('alert-class', 'alert-success')
-                       ->with('flash_message', 'Data status zakat berhasil diubah');
+        return redirect()->route('sumbangan.index.user')->with('alert-class','alert-success')
+                        ->with('flash_message', 'Status data berhasil diupdate');
       }
-      return back()->with('alert-class', 'alert-danger')
-                   ->with('flash_message', 'Data status zakat gagal diubah');
+      return redirect()->route('sumbangan.index.user')->with('alert-class','alert-danger')
+                      ->with('flash_message','Status data gagal diupdate');
   }
 
   public function destroy(Donasi $sumbangan)

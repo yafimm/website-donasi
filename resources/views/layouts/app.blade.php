@@ -53,7 +53,7 @@
                   <div class="dropdown-item">
                     {{ Auth::user()->role->nama_role }}
                   </div>
-                  @if(Auth::user()->isAdmin())
+                  @if(Auth::user()->isAdmin() || Auth::user()->isHelpdesk())
                   <a class="dropdown-item" href="{{ route('dashboard.admin') }}">Dashboard</a>
                   @else
                   <a class="dropdown-item" href="{{ url('dashboard') }}">Dashboard</a>
