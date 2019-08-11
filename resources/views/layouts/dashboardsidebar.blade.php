@@ -1,5 +1,8 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
-  <div class="sidebar-heading">BANTU </div>
+  <div class="sidebar-heading">
+      <img src="https://seeklogo.com/images/B/b-logo-A317956935-seeklogo.com.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      BANTU
+  </div>
   <div class="list-group list-group-flush">
     @if(Auth::user()->isAdmin() || Auth::user()->isHelpdesk())
       <a href="{{ route('dashboard.admin') }}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
@@ -7,6 +10,8 @@
       <a href="{{ route('sumbangan.index') }}" class="list-group-item list-group-item-action bg-light">Kelola Sumbangan</a>
       @if(Auth::user()->isAdmin())
       <a href="{{ route('pegawai.index')}}" class="list-group-item list-group-item-action bg-light">Kelola Pegawai</a>
+      <a href="{{ route('donatur.index')}}" class="list-group-item list-group-item-action bg-light">Data Donatur</a>
+      <a href="{{ route('yayasan.index')}}" class="list-group-item list-group-item-action bg-light">Data Yayasan</a>
       @endif
     @else
       <a href="{{ url('dashboard') }}" class="list-group-item list-group-item-action bg-light">Dashboard</a>

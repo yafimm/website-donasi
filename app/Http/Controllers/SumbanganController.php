@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Donasi;
+use Storage;
 
 class SumbanganController extends Controller
 {
@@ -65,9 +66,15 @@ class SumbanganController extends Controller
   {
       $input = $request->all();
       $input['id_pengirim'] = \Auth::user()->id;
-      $input['gambar'] = 'test';
       $input['id_jenis_donasi'] = 1;
-      $input['bukti_pengiriman'] = 'test';
+      if(isset($input['gambar']))
+      {
+          $input['gambar'] = $this->uploadGambar($request);
+      }
+      if(isset($input['bukti_pengiriman']))
+      {
+          $input['bukti_pengiriman'] = $this->uploadBukti($request);
+      }
       $input['status'] = 'Belum Selesai';
       $store = Donasi::create($input);
       if($store){
@@ -81,7 +88,12 @@ class SumbanganController extends Controller
 
   public function show(Donasi $sumbangan)
   {
-      return view('zakat.show', compact('zakat'));
+      if($sumbangan->id_jenis_donasi == 1){
+          if(\Auth::user()->isAdmin() || \Auth::user()->isHelpdesk() || $sumbangan->id_penerima == \Auth::user()->id || $sumbangan->id_pengirim == \Auth::user()->id){
+              return view('sumbangan.show', compact('sumbangan'));
+          }
+      }
+      return abort(404);
   }
 
   public function show_user($username)
@@ -126,6 +138,8 @@ class SumbanganController extends Controller
 
   public function destroy(Donasi $sumbangan)
   {
+      $this->hapusBukti($sumbangan);
+      $this->hapusGambar($sumbangan);
       $delete = $sumbangan->delete();
       if($delete){
           return back()->with('alert-class','alert-success')
@@ -134,5 +148,49 @@ class SumbanganController extends Controller
       //Kalo fail dilempar kesini
       return back()->with('alert-class','alert-danger')
                       ->with('flash_message','Data sumbangan gagal dihapus');
+  }
+
+  private function uploadGambar(Request $request)
+  {
+      $gambar = $request->file('gambar');
+      $ext = $gambar->getClientOriginalExtension();
+      if($request->file('gambar')->isValid()){
+          $filename = date('Ymd').uniqid().$ext;
+          $upload_path = 'images/donasi';
+          $request->file('gambar')->move($upload_path, $filename);
+          return $filename;
+      }
+      return false;
+  }
+
+  private function uploadBukti(Request $request)
+  {
+      $bukti_pengiriman = $request->file('bukti_pengiriman');
+      $ext = $bukti_pengiriman->getClientOriginalExtension();
+      if($request->file('bukti_pengiriman')->isValid()){
+          $filename = date('Ymd').uniqid().$ext;
+          $upload_path = 'images/bukti';
+          $request->file('bukti_pengiriman')->move($upload_path, $filename);
+          return $filename;
+      }
+      return false;
+  }
+
+  private function hapusGambar(Donasi $zakat)
+  {
+      $exist = Storage::disk('gambar')->exists($zakat->gambar);
+      if(isset($zakat->gambar) && $exist){
+          $delete = Storage::disk('gambar')->delete($zakat->gambar);
+          return $delete; //Kalo delete gagal, bakal return false, kalo berhasil bakal return true
+      }
+  }
+
+  private function hapusBukti(Donasi $zakat)
+  {
+      $exist = Storage::disk('bukti_pengiriman')->exists($zakat->gambar);
+      if(isset($zakat->bukti_pengiriman) && $exist){
+          $delete = Storage::disk('bukti_pengiriman')->delete($zakat->gambar);
+          return $delete; //Kalo delete gagal, bakal return false, kalo berhasil bakal return true
+      }
   }
 }

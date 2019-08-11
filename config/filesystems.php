@@ -48,6 +48,16 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'gambar' => [
+            'driver' => 'local',
+            'root' => public_path('images/donasi'),
+        ],
+
+        'bukti_pengiriman' => [
+            'driver' => 'local',
+            'root' => public_path('images/bukti'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

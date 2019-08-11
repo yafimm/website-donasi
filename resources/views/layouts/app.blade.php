@@ -24,12 +24,21 @@
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="{{ url('/')  }}">BANTU</a>
+          <a class="navbar-brand" href="{{ url('/')  }}">
+            <img src="https://seeklogo.com/images/B/b-logo-A317956935-seeklogo.com.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            BANTU
+          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+              <li class="nav-item px-5">
+                <form class="form-inline my-2 my-lg-0" action="{{ url('sumbangan') }}" method="GET">
+                  <input class="form-control mr-sm-2" value="{{ Request::get('search') }}" type="search" name="search" placeholder="Search yayasan" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="{{ url('/') }}">Home
                   <span class="sr-only">(current)</span>
@@ -58,6 +67,7 @@
                   @else
                   <a class="dropdown-item" href="{{ url('dashboard') }}">Dashboard</a>
                   @endif
+                  <a class="dropdown-item" href="{{ url('') }}">Account</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">Logout</a>
@@ -100,8 +110,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/imageReader.js') }}"></script>
 </body>

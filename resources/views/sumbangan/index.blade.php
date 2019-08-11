@@ -22,11 +22,8 @@
               <th scope="col">#</th>
               <th scope="col">ID</th>
               <th scope="col">Pengirim</th>
-            @if(Auth::user()->isAdmin())
               <th scope="col">Penerima</th>
-            @endif
-              <th scope="col">Sumbangan</th>
-              <th scope="col">Tanggal</th>
+              <th scope="col">Waktu</th>
               <th scope="col">Status</th>
               <th scope="col">Action</th>
             </tr>
@@ -37,14 +34,14 @@
               <th scope="row">{{$key + 1}}</th>
               <th scope="row">{{$row->id}}</th>
               <td>{{$row->pengirim->username}}</td>
-              @if(Auth::user()->isAdmin())
-                <td scope="row">{{ $row->penerima->username }}</td>
-              @endif
-              <td>{{$row->jenis_donasi->nama}}</td>
-              <td>{{$row->created_at->format('d M Y')}}</td>
+              <td scope="row">{{ ($row->penerima) ? $row->penerima->username : '-' }}</td>
+              <td>{{$row->created_at->format('H.i d M Y')}}</td>
               <td>{{$row->status}}</td>
               <td>
-                <a href="{{ route('sumbangan.edit', $row->id) }}" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                @if(Auth::user()->isYayasan() || Auth::user()->isDonatur())
+                  <a href="{{ route('sumbangan.edit', $row->id) }}" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                @endif
+                <a href="{{ route('sumbangan.show.user', $row->id) }}" class="btn btn-info"><i class="fa fa-info" aria-hidden="true"></i></a>
                 <a href="{{ route('sumbangan.destroy', $row->id) }}" class="btn btn-danger"  onclick="event.preventDefault();
                 document.getElementById('sumbangan-delete-{{ $row->id }}').submit();"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 

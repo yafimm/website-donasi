@@ -15,7 +15,7 @@
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
           </div>
           <div class="card-footer">
-            <a href="{{ route('sumbangan.show.user', $row->username) }}" class="btn btn-primary">Lihat detail</a>
+            <a href="{{ route('sumbangan.show_user', $row->username) }}" class="btn btn-primary">Lihat detail</a>
           </div>
         </div>
       </div>

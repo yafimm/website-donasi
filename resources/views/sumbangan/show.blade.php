@@ -25,7 +25,7 @@
         <p>{{ $zakat->deskripsi }}</p>
       </div>
       <div class="col-12 col-md-8 offset-md-2 py-3">
-        @if($zakat->status === 'Belum Selesai')
+        @if($zakat->status === 'Belum Selesai' && \Auth::user()->isYayasan())
         <form class="" action="{{ route('zakat.update.status') }}" method="post">
           @csrf
           @method('post')

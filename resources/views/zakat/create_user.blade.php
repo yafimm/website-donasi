@@ -3,7 +3,7 @@
 @section('content')
 
   @include('layouts.header')
-  <div class="col-md-6 offset-md-3">
+  <div class="col-md-6 offset-md-3 test">
         @include('_partial.flash_message')
         <form class="" action="{{ route('zakat.store.user') }}" method="POST" enctype="multipart/form-data">
           @CSRF
