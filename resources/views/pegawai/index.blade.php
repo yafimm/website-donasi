@@ -45,4 +45,8 @@
         </table>
       </div>
     </div>
+
+    <div class="d-flex justify-content-center">
+      {{ $all_pegawai->links() }}
+    </div>
 @endsection

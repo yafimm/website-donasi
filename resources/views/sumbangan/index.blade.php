@@ -57,4 +57,8 @@
         </table>
       </div>
     </div>
+
+    <div class="d-flex justify-content-center">
+      {{ $sumbangan->links() }}
+    </div>
 @endsection
