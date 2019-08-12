@@ -15,15 +15,18 @@ Route::get('/', 'HomeController@index');
 Route::get('/zakat', 'HomeController@zakat');
 Route::get('/sumbangan', 'HomeController@sumbangan');
 Route::get('/about', 'HomeController@about');
+Route::get('sumbangan/{username}', 'SumbanganController@show_user')->name('sumbangan.show_user');
 
 Route::group(['middleware' => ['web', 'auth']], function(){
     Route::get('zakat/create', 'ZakatController@create_user')->name('zakat.create.user');
-    Route::get('sumbangan/{username}', 'SumbanganController@show_user')->name('sumbangan.show_user');
     Route::get('sumbangan/create', 'SumbanganController@create_user')->name('sumbangan.create.user');
+    Route::post('dashboard/account', 'UsersController@update_account')->name('account.update');
+    Route::put('dashboard/account/password', 'UsersController@update_password')->name('account.password.update');
 });
 
 Route::group(['middleware' => ['web', 'user']], function(){
     Route::get('dashboard', 'UsersController@dashboard')->name('dashboard');
+    Route::get('dashboard/account', 'UsersController@account')->name('account.index');
     Route::get('dashboard/zakat', 'ZakatController@index_user')->name('zakat.index.user');
     Route::get('dashboard/sumbangan', 'SumbanganController@index_user')->name('sumbangan.index.user');
     Route::get('dashboard/zakat/history', 'ZakatController@history_user')->name('zakat.history.user');
@@ -38,6 +41,7 @@ Route::group(['middleware' => ['web', 'user']], function(){
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web','admin']], function(){
     Route::get('dashboard', 'UsersController@admindashboard')->name('dashboard.admin');
+    Route::get('dashboard/account', 'UsersController@account')->name('account.index.admin');
     Route::get('dashboard/zakat/history', 'ZakatController@history')->name('zakat.history');
     Route::get('dashboard/sumbangan/history', 'SumbanganController@history')->name('sumbangan.history');
     Route::get('donatur', 'UsersController@index_donatur')->name('donatur.index');

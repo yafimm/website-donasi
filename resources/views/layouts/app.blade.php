@@ -36,7 +36,7 @@
               <li class="nav-item px-5">
                 <form class="form-inline my-2 my-lg-0" action="{{ url('sumbangan') }}" method="GET">
                   <input class="form-control mr-sm-2" value="{{ Request::get('search') }}" type="search" name="search" placeholder="Search yayasan" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
               </li>
               <li class="nav-item active">
@@ -56,6 +56,7 @@
               @if(Auth::check())
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="{{ (Auth::user()->foto) ? asset('images/profile/'.Auth::user()->foto) : asset('images/profile/foto_default.png') }}" class="img-fluid rounded-circle mx-1" height="30" width="30" alt="">
                   {{ Auth::user()->username }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -64,10 +65,11 @@
                   </div>
                   @if(Auth::user()->isAdmin() || Auth::user()->isHelpdesk())
                   <a class="dropdown-item" href="{{ route('dashboard.admin') }}">Dashboard</a>
+                  <a class="dropdown-item" href="{{ route('account.index.admin') }}">Account</a>
                   @else
                   <a class="dropdown-item" href="{{ url('dashboard') }}">Dashboard</a>
+                  <a class="dropdown-item" href="{{ route('account.index') }}">Account</a>
                   @endif
-                  <a class="dropdown-item" href="{{ url('') }}">Account</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">Logout</a>

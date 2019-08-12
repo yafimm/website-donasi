@@ -40,6 +40,9 @@ class UsersTableSeeder extends Seeder
           $user->email = 'pantiasuhan@gmail.com';
           $user->gender = 'Wanita';
           $user->no_telp = '0813232323';
+          $user->no_rekening = '0uiasd8213';
+          $user->foto = 'pantiasuhan.jpg';
+          $user->deskripsi = 'Sebuah panti asuhan yang berletak di kota bandung, selain itu selain itu dan ada lagi sebuah itu';
           $user->save();
 
           $user = new User;
@@ -50,6 +53,9 @@ class UsersTableSeeder extends Seeder
           $user->email = 'klinikkucing@gmail.com';
           $user->gender = 'Pria';
           $user->no_telp = '0813212322';
+          $user->no_rekening = '0ui342d8213';
+          $user->deskripsi = 'Sebuah klinik kucing tanpa bayaran untuk membantu kucing yang terlantar yang berletak di kota bandung, selain itu selain itu dan ada lagi sebuah itu';
+          $user->foto = 'klinikkucing.jpg';
           $user->save();
 
           $user = new User;
@@ -60,6 +66,9 @@ class UsersTableSeeder extends Seeder
           $user->email = 'nande@gmail.com';
           $user->gender = 'Wanita';
           $user->no_telp = '0813252323';
+          $user->no_rekening = '0ui342d8213';
+          $user->foto = 'rumahmakan.jpg';
+          $user->deskripsi = 'Rumah makan yang membantu orang orang kerja dalam sebuah ada yang ada didalam itu tersebut yang bisa apa gitu';
           $user->save();
 
           $user = new User;

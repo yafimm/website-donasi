@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->enum('gender', ['Pria', 'Wanita']);
             $table->string('no_telp', 12)->nullable();
             $table->string('no_rekening', 20)->nullable();
+            $table->string('foto')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -4,6 +4,7 @@
       BANTU
   </div>
   <div class="list-group list-group-flush">
+    <a href="{{ url('/') }}" class="list-group-item list-group-item-action bg-light">Go to Website</a>
     @if(Auth::user()->isAdmin() || Auth::user()->isHelpdesk())
       <a href="{{ route('dashboard.admin') }}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
       <a href="{{ route('zakat.index') }}" class="list-group-item list-group-item-action bg-light">Kelola Zakat</a>

@@ -39,24 +39,20 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="{{ (Auth::user()->foto) ? asset('images/profile/'.Auth::user()->foto) : asset('images/profile/foto_default.png') }}" class="img-fluid rounded-circle mx-1" height="30" width="30" alt="">
                 {{ Auth::user()->username }}
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="">{{ Auth::user()->role->nama_role }}</a>
                 @if(Auth::user()->isAdmin() || Auth::user()->isHelpdesk())
                   <a class="dropdown-item" href="{{ route('dashboard.admin') }}">Dashboard</a>
+                  <a class="dropdown-item" href="{{ route('account.index.admin') }}">Account</a>
                 @else
                   <a class="dropdown-item" href="{{ url('dashboard') }}">Dashboard</a>
+                  <a class="dropdown-item" href="{{ route('account.index') }}">Account</a>
                 @endif
-                <a class="dropdown-item" href="{{ url('') }}">Account</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">Logout</a>

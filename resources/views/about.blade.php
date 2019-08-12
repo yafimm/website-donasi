@@ -5,6 +5,12 @@
   @include('layouts.header')
 
   <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url('') }}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">About</li>
+      </ol>
+    </nav>
     <div class="row">
       <div class="col-12 text-center py-3">
         <h1>About us</h1>

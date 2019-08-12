@@ -53,6 +53,11 @@ return [
             'root' => public_path('images/donasi'),
         ],
 
+        'foto' => [
+            'driver' => 'local',
+            'root' => public_path('images/profile'),
+        ],
+
         'bukti_pengiriman' => [
             'driver' => 'local',
             'root' => public_path('images/bukti'),
