@@ -12,7 +12,6 @@
           <hr>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-          <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
         </div>
         <div class="col-md-5 mb-5 col-sm-6 col-12">
           <h2>Recent Donatur</h2>
