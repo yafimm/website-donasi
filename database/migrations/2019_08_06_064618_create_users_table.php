@@ -54,6 +54,14 @@ class CreateUsersTable extends Migration
             ->onUpdate('cascade');
        });
 
+       Schema::table('pesan', function (Blueprint $table){
+        $table->foreign('id_user')
+           ->references('id')
+           ->on('users')
+           ->onDelete('cascade')
+           ->onUpdate('cascade');
+      });
+
        Schema::table('kehadiran', function (Blueprint $table){
         $table->foreign('id_pegawai')
            ->references('id')
@@ -84,6 +92,10 @@ class CreateUsersTable extends Migration
         Schema::table('detail_pesan', function(Blueprint $table){
           $table->dropForeign('detail_pesan_id_user_foreign');
         });
+
+          Schema::table('pesan', function(Blueprint $table){
+            $table->dropForeign('pesan_id_user_foreign');
+          });
 
         Schema::table('kehadiran', function(Blueprint $table){
           $table->dropForeign('kehadiran_id_pegawai_foreign');

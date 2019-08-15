@@ -105,8 +105,15 @@
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Bantu 2019</p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-md-10">
+            <p class="m-0 text-center text-white">Copyright &copy; Bantu 2019</p>
+          </div>
+          <div class="col-12 col-md-2">
+            <a href="{{ route('pesan.create') }}" class="btn btn-info btn-block">Bantuan dan Keluhan</a>
+          </div>
+        </div>
       </div>
       <!-- /.container -->
     </footer>

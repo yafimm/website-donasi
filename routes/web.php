@@ -22,6 +22,8 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     Route::get('sumbangan/create', 'SumbanganController@create_user')->name('sumbangan.create.user');
     Route::post('dashboard/account', 'UsersController@update_account')->name('account.update');
     Route::put('dashboard/account/password', 'UsersController@update_password')->name('account.password.update');
+    Route::get('pesan/history', 'Pesancontroller@index_history')->name('pesan.history');
+    Route::resource('pesan', 'PesanController');
 });
 
 Route::group(['middleware' => ['web', 'user']], function(){
@@ -44,6 +46,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','admin']], function(){
     Route::get('dashboard/account', 'UsersController@account')->name('account.index.admin');
     Route::get('dashboard/zakat/history', 'ZakatController@history')->name('zakat.history');
     Route::get('dashboard/sumbangan/history', 'SumbanganController@history')->name('sumbangan.history');
+    Route::get('dashboard/pesan', 'PesanController@index_admin')->name('pesan.index-admin');
+    Route::get('dashboard/pesan/history', 'PesanController@index_admin_history')->name('pesan.history-admin');
+    Route::post('dashboard/pesan/{id}', 'PesanController@update_status')->name('pesan.update.status');
     Route::get('donatur', 'UsersController@index_donatur')->name('donatur.index');
     Route::get('donatur/{username}', 'UsersController@show')->name('donatur.show');
     Route::get('yayasan', 'UsersController@index_yayasan')->name('yayasan.index');

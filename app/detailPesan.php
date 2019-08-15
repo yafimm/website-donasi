@@ -17,6 +17,6 @@ class detailPesan extends Model
     }
 
     public function user(){
-        return $this->belongsTo('App\Users', 'id_user');
+        return $this->belongsTo('App\User', 'id_user');
     }
 }

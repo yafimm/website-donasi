@@ -35,7 +35,7 @@ class DonasiTableSeeder extends Seeder
           $donasi = new Donasi;
           $donasi->id_jenis_donasi = 1; // sumbangan
           $donasi->id_pengirim = 1;
-          $donasi->id_penerima = null; //pantiasuhangunadarma
+          $donasi->id_penerima = 3; //pantiasuhangunadarma
           $donasi->bukti_pengiriman = 'masih beta';
           $donasi->status = 'Belum Selesai';
           $donasi->gambar = 'Masih beta';

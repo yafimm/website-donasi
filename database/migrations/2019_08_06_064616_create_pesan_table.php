@@ -15,6 +15,8 @@ class CreatePesanTable extends Migration
     {
         Schema::create('pesan', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title', 50);
+            $table->integer('id_user')->unsigned();
             $table->enum('status', ['Selesai', 'Belum Selesai']);
             $table->timestamps();
         });

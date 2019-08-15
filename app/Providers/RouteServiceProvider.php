@@ -27,6 +27,7 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot();
         Route::model('zakat', 'App\Donasi');
+        Route::model('pesan', 'App\Pesan');
     }
 
     /**
