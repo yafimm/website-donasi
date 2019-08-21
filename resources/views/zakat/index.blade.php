@@ -10,6 +10,7 @@
         <a href="{{ route('zakat.create') }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add Data</a>
         <a href="{{ route('zakat.index') }}" class="btn btn-primary"><i class="fa fa-home" aria-hidden="true"></i> Index Zakat</a>
         <a href="{{ route('zakat.history') }}" class="btn btn-info"><i class="fa fa-history" aria-hidden="true"></i> History Zakat</a>
+        <a target="_blank" href="{{ route('zakat.cetak-pdf') }}" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i> Print Data</a>
         @else
         <a href="{{ route('zakat.index.user') }}" class="btn btn-primary"><i class="fa fa-home" aria-hidden="true"></i> Index Zakat</a>
         <a href="{{ route('zakat.history.user') }}" class="btn btn-info"><i class="fa fa-history" aria-hidden="true"></i> History Zakat</a>

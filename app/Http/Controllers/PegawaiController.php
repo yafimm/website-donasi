@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use PDF;
 
 class PegawaiController extends Controller
 {
@@ -74,4 +75,12 @@ class PegawaiController extends Controller
       return redirect()->route('pegawai.index')->with('alert-class','alert-danger')
                       ->with('flash_message','Data gagal dihapus');
   }
+
+  public function cetak_pdf()
+  {
+      $all_pegawai = User::where('id_role', '=','3')->get();
+      $pdf = PDF::loadview('pegawai.download-pdf', ['all_pegawai' => $all_pegawai]);
+      return $pdf->download();
+  }
+
 }

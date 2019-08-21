@@ -7,11 +7,12 @@ use App\Donasi;
 use App\jenisDonasi;
 use App\User;
 use Storage;
+use PDF;
 
 class ZakatController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $zakat = Donasi::where('status', '=','Belum Selesai')->whereIn('id_jenis_donasi', [2, 3])->simplePaginate(20);
         return view('zakat.index', compact('zakat'));
@@ -184,4 +185,12 @@ class ZakatController extends Controller
             return $delete; //Kalo delete gagal, bakal return false, kalo berhasil bakal return true
         }
     }
+
+    public function cetak_pdf()
+    {
+        $zakat = Donasi::whereIn('id_jenis_donasi', [2, 3])->get();
+        $pdf = PDF::loadview('zakat.download-pdf', ['zakat' => $zakat]);
+        return $pdf->download();
+    }
+
 }

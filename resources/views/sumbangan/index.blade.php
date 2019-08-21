@@ -10,6 +10,7 @@
         <a href="{{ route('sumbangan.create') }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add Data</a>
         <a href="{{ route('sumbangan.index') }}" class="btn btn-primary"><i class="fa fa-home" aria-hidden="true"></i> Index Sumbangan</a>
         <a href="{{ route('sumbangan.history') }}" class="btn btn-info"><i class="fa fa-history" aria-hidden="true"></i> History Sumbangan</a>
+        <a target="_blank" href="{{ route('sumbangan.cetak-pdf') }}" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i> Print Data</a>
         @else
         <a href="{{ route('sumbangan.index.user') }}" class="btn btn-primary"><i class="fa fa-home" aria-hidden="true"></i> Index Sumbangan</a>
         <a href="{{ route('sumbangan.history.user') }}" class="btn btn-info"><i class="fa fa-history" aria-hidden="true"></i> History Sumbangan</a>

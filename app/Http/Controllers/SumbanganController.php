@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Donasi;
 use Storage;
+use PDF;
 
 class SumbanganController extends Controller
 {
@@ -148,6 +149,13 @@ class SumbanganController extends Controller
       //Kalo fail dilempar kesini
       return back()->with('alert-class','alert-danger')
                       ->with('flash_message','Data sumbangan gagal dihapus');
+  }
+
+  public function cetak_pdf()
+  {
+      $sumbangan = Donasi::whereIn('id_jenis_donasi', [1])->get();
+      $pdf = PDF::loadview('sumbangan.download-pdf', ['sumbangan' => $sumbangan]);
+      return $pdf->download();
   }
 
   private function uploadGambar(Request $request)

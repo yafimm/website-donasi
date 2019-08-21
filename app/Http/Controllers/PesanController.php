@@ -51,7 +51,7 @@ class PesanController extends Controller
                                                 'isi_pesan' => $input['pesan'],
                                                 'id_pesan' => $pesan->id ]);
               if($detailPesan){
-                  return redirect()->route('pesan.index-user');
+                  return redirect()->route('pesan.index');
               }
         }
         return redirect()->route('pesan.create');
@@ -75,7 +75,7 @@ class PesanController extends Controller
     public function update(Request $request, Pesan $pesan)
     {
         if($pesan->status == 'Belum Selesai'){
-            if($pesan->id_user == \Auth::user()->id || \Auth::user()->isAdmin()){
+            if($pesan->id_user == \Auth::user()->id || \Auth::user()->isAdmin() || \Auth::user()->isHelpdesk()){
                 $input = $request->all();
                 $input['id_user'] = \Auth::user()->id;
                 $input['id_pesan'] = $pesan->id;

@@ -77,6 +77,29 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Tipe Akun</label>
+
+                            <div class="col-md-6">
+                                    <div class="col-md-6">
+                                      <label for="text-input" class="form-check-label  cstm_checkbox-text">
+                                        <input type="radio" id="text-input" name="id_role" value="1" class="form-check-input"> Donatur
+                                      </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <label for="text-input" class="form-check-label  cstm_checkbox-text">
+                                        <input type="radio" id="text-input" name="id_role" value="2" class="form-check-input"> Yayasan
+                                      </label>
+                                    </div>
+
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

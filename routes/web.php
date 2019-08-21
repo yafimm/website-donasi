@@ -54,6 +54,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','admin']], function(){
     Route::get('yayasan', 'UsersController@index_yayasan')->name('yayasan.index');
     Route::get('yayasan/{username}', 'UsersController@show')->name('yayasan.show');
     Route::post('dashboard/zakat/update/', 'ZakatController@update_status')->name('zakat.update.status');
+    Route::get('zakat/cetak_pdf', 'ZakatController@cetak_pdf')->name('zakat.cetak-pdf');
+    Route::get('sumbangan/cetak_pdf', 'SumbanganController@cetak_pdf')->name('sumbangan.cetak-pdf');
+    Route::get('pegawai/cetak_pdf', 'PegawaiController@cetak_pdf')->name('pegawai.cetak-pdf');
     Route::resource('zakat', 'ZakatController');
     Route::resource('sumbangan', 'SumbanganController');
     Route::resource('pegawai', 'PegawaiController');
