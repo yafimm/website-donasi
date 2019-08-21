@@ -36,6 +36,11 @@ Route::group(['middleware' => ['web', 'user']], function(){
     Route::post('dashboard/sumbangan/update/', 'SumbanganController@update_status')->name('sumbangan.update.status');
     Route::get('dashboard/sumbangan/{sumbangan}', 'SumbanganController@show')->name('sumbangan.show.user');
     Route::get('dashboard/sumbangan/history', 'SumbanganController@history_user')->name('sumbangan.history.user');
+    Route::get('dashboard/dhuafa', 'DhuafaController@index')->name('dhuafa.index');
+    Route::get('dashboard/dhuafa/create', 'DhuafaController@create')->name('dhuafa.create');
+    Route::get('dashboard/dhuafa/{id}', 'DhuafaController@show')->name('dhuafa.show');
+    Route::delete('dashboard/dhuafa/{id}', 'DhuafaController@destroy')->name('dhuafa.destroy');
+    Route::post('dashboard/dhuafa', 'DhuafaController@store')->name('dhuafa.store');
     Route::post('zakat', 'ZakatController@store')->name('zakat.store.user');
     Route::post('sumbangan', 'SumbanganController@store')->name('sumbangan.store.user');
 });

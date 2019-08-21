@@ -21,7 +21,13 @@
             <p class="card-text">{{str_limit($row->deskripsi, $limit = 150, $end = '...')}}</p>
           </div>
           <div class="card-footer">
-            <a href="{{ route('sumbangan.show_user', $row->username) }}" class="btn btn-primary">Lihat detail</a>
+            <div class="row">
+              <div class="col-6 col-sm-8">
+                <a href="{{ route('sumbangan.show_user', $row->username) }}" class="btn btn-primary">Lihat detail</a>
+              </div>
+              <div class="col-6 col-sm-4">
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -60,6 +60,15 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role', 'id_role');
     }
 
+    public function dhuafa(){
+        return $this->belongsTo('App\Dhuafa', 'id_user');
+    }
+
+    public function getDhuafaCountAttribute()
+    {
+        return $this->dhuafa()->count();
+    }
+
     public function pesan(){
         return $this->hasMany('App\Pesan', 'id_user', 'id');
     }
@@ -71,4 +80,6 @@ class User extends Authenticatable
     public function donasiPenerima(){
         return $this->hasMany('App\Donasi', 'id_penerima', 'id');
     }
+
+
 }

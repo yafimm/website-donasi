@@ -16,6 +16,9 @@
       <a href="{{ route('yayasan.index')}}" class="list-group-item list-group-item-action bg-light">Data Yayasan</a>
       @endif
     @else
+      @if(Auth::user()->isYayasan())
+      <a href="{{ route('dhuafa.index') }}" class="list-group-item list-group-item-action bg-light">Kelola Dhuafa</a>
+      @endif
       <a href="{{ url('dashboard') }}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
       <a href="{{ route('zakat.index.user') }}" class="list-group-item list-group-item-action bg-light">Zakat</a>
       <a href="{{ route('sumbangan.index.user')}}" class="list-group-item list-group-item-action bg-light">Sumbangan</a>
