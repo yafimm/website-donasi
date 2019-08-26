@@ -33,6 +33,24 @@
       </div>
       @endforeach
     </div>
+	@if(isset($dhuafa))
+		<div class="row">
+			<div class="col-12 py-2	">
+				<h3>Kaum Dhuafa</h3>
+			</div>
+			
+			@foreach($dhuafa as $dhuafa)
+				<div class="card col-md-3 col-sm-4 col-6" style="width: 18rem;">
+				  <img src="..." class="card-img-top" alt="...">
+				  <div class="card-body">
+					<h5 class="card-title">{{ $dhuafa->nama }} </h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="{{ route('sumbangan.show_user', $dhuafa->yayasan->username) }}" class="btn btn-primary">Go somewhere</a>
+				  </div>
+				</div>
+			@endforeach
+		</div>
+	@endif
   </div>
   <div class="d-flex justify-content-center">
     {{ $yayasan->links() }}

@@ -15,7 +15,7 @@
                 <div class="col-md-12">
                     <form method="POST" action="{{ route('account.update') }}" enctype="multipart/form-data">
                           @CSRF
-                          @method('post')
+                          @method('PUT')
                           <div class="form-group row">
                             <label for="username" class="col-4 col-form-label">Foto Profil</label>
                             <div class="col-8">

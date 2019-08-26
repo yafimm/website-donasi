@@ -30,10 +30,14 @@ class HomeController extends Controller
             $yayasan = \App\User::where([['id_role', '=', 2], ['username','like','%'.$request->search.'%']])
                                   ->orWhere([['id_role', '=', 2], ['nama','like','%'.$request->search.'%']])
                                   ->simplePaginate(15);
-        }else{
+								  
+			$dhuafa = \App\Dhuafa::where([['nama', 'like', '%'.$request->search.'%']])->get();
+			return view('sumbangan', compact('yayasan', 'dhuafa'));
+  
+		}else{
             $yayasan = \App\User::where('id_role', '=', 2)->simplePaginate(15);
-        }
-        return view('sumbangan', compact('yayasan'));
+			return view('sumbangan', compact('yayasan'));
+		}
     }
 
     public function about(){

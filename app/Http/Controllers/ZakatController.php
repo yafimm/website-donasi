@@ -63,11 +63,11 @@ class ZakatController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $input['id_pengirim'] = \Auth::user()->id;
-
+		$input['id_pengirim'] = \Auth::user()->id;
+		
         if(isset($input['gambar']))
-        {
-            $input['gambar'] = $this->uploadGambar($request);
+        {	
+		    $input['gambar'] = $this->uploadGambar($request);
         }
         if(isset($input['bukti_pengiriman']))
         {

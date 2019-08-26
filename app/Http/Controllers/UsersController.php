@@ -74,13 +74,14 @@ class UsersController extends Controller
     public function update_account(Request $request)
     {
         $this->validator($request);
-        $user = User::find(\Auth::user()->id);
+		$user = User::find(\Auth::user()->id);
         if($user){
             $input = $request->all();
             if(isset($input['foto']))
             {
-                $this->hapusGambar($user);
-                $input['foto'] = $this->uploadGambar($request);
+				$this->hapusGambar($user);
+     
+				$input['foto'] = $this->uploadGambar($request);
             }
 
             $update = $user->update($input);

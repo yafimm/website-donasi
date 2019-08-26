@@ -24,6 +24,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
     Route::put('dashboard/account/password', 'UsersController@update_password')->name('account.password.update');
     Route::get('pesan/history', 'Pesancontroller@index_history')->name('pesan.history');
     Route::resource('pesan', 'PesanController');
+    Route::post('sumbangan', 'SumbanganController@store')->name('sumbangan.store.user');
 });
 
 Route::group(['middleware' => ['web', 'user']], function(){
@@ -42,7 +43,6 @@ Route::group(['middleware' => ['web', 'user']], function(){
     Route::delete('dashboard/dhuafa/{id}', 'DhuafaController@destroy')->name('dhuafa.destroy');
     Route::post('dashboard/dhuafa', 'DhuafaController@store')->name('dhuafa.store');
     Route::post('zakat', 'ZakatController@store')->name('zakat.store.user');
-    Route::post('sumbangan', 'SumbanganController@store')->name('sumbangan.store.user');
 });
 
 

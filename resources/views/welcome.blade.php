@@ -8,10 +8,10 @@
 
       <div class="row">
         <div class="col-md-7 mb-5 col-sm-6 col-12">
-          <h2>What We Do</h2>
+          <h2>BANTU</h3>
           <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+          <p>Indonesia adalah negara yang sangat luas, serta memiliki banyak penduduk yang tersebar luas di seluruh pulaunya. Indonesia pun adalah negara yang memang mempunyai kekayaan luar biasa didalamnya. dan tak ketinggalan indonesia pun mempunyai segudang masalah yang sampai saat ini masih coba di atasi, salah satu nya adalah kesetaraan sosial, dan memang indonesia adalah negara yang banyak kepulauaan dan tidak tersebar luas pemberdayaannya. pemerintah pun berusaha untuk bagi mana mengatasi tentang keadilan sosial bagi seluruh rakyat indonesia dari kemiskinan.</p>
+          <p>Karena kemiskinan memang menjadi salah satu persoalan yang cukup serius, banyak organisasi atau kelompok yang sudah coba membantu untuk bergotong royong mengatasi masalah kemanusiaan ini, tapi memang banyak sekali permasalahan yang di hadapi, salah satu contoh besar yaitu negara ini cukup luas dan besar. untuk itu kami berusaha semaksimal munngkin menciptakan inovasi untuk menyentuh daerah-daerah yang sulit dijangkau oleh manusia langsung untuk membantunya.</p>
         </div>
         <div class="col-md-5 mb-5 col-sm-6 col-12">
           <h2>Recent Donatur</h2>
